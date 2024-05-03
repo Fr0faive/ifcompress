@@ -6,7 +6,7 @@ export default function Navbar() {
   const path = usePathname();
   return (
     <nav className="w-full bg-white flex justify-between items-center p-5 text-slate-800">
-      <h1>
+      <h1 className={path === "/" ? "font-semibold text-blue-500" : ""}>
         <Link href="/">IF-Compress</Link>
       </h1>
       <ul className="flex gap-4 items-center">

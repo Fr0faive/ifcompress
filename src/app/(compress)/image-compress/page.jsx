@@ -26,7 +26,6 @@ export default function ImagePage() {
         setIsCompressing(true);
         const compressedFile = await compressFile(selectedImage);
         setCompressedImage(compressedFile);
-        console.log(compressedImage);
       } catch (error) {
         console.log(error);
       } finally {
@@ -35,45 +34,51 @@ export default function ImagePage() {
     }
   };
   return (
-    <section className="flex min-h-screen items-center flex-col p-4 gap-3">
-      <FileInput handleOnChange={handleOnChange} />
-      <article className={selectedImage ? "flex p-6 gap-3" : "hidden"}>
-        <aside>
-          <div className="flex justify-center items-center flex-col gap-10 w-full">
-            <ImagePreviewer imageFile={selectedImage} />
-            {selectedImage && (
-              <>
-                <p className="font-semibold text-xl">{selectedImage.name}</p>
-                <button
-                  disabled={isCompressing}
-                  onClick={handleCompressFile}
-                  className="bg-blue-500 text-white px-4 py-2 rounded-lg"
-                >
-                  {isCompressing ? "Compressing..." : "Compress"}
-                </button>
-              </>
-            )}
-          </div>
-        </aside>
-        <aside>
-          <div className="flex justify-center items-center flex-col gap-10 w-full">
-            <ImagePreviewer imageFile={compressedImage} />
-            {compressedImage && (
-              <>
-                <p className="font-semibold text-xl">
-                  Compressed-{compressedImage.name}
-                </p>
-                <button
-                  onClick={handleDownload}
-                  className="bg-blue-500 text-white px-4 py-2 rounded-lg"
-                >
-                  {isDownload ? "Downloading..." : "Download"}
-                </button>
-              </>
-            )}
-          </div>
-        </aside>
-      </article>
+    <section className="min-h-screen p-4 gap-3">
+      <div className="w-full flex justify-center items-center flex-col bg-white text-gray-800 backdrop-blur-lg rounded-2xl p-4">
+        <FileInput
+          handleOnChange={handleOnChange}
+          label="Select Image"
+          accept="image/*"
+        />
+        <article className={selectedImage ? "flex p-6 gap-3" : "hidden"}>
+          <aside>
+            <div className="flex justify-center items-center flex-col gap-10 w-full">
+              <ImagePreviewer imageFile={selectedImage} />
+              {selectedImage && (
+                <>
+                  <p className="font-semibold text-lg">{selectedImage.name}</p>
+                  <button
+                    disabled={isCompressing}
+                    onClick={handleCompressFile}
+                    className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+                  >
+                    {isCompressing ? "Compressing..." : "Compress"}
+                  </button>
+                </>
+              )}
+            </div>
+          </aside>
+          <aside>
+            <div className="flex justify-center items-center flex-col gap-10 w-full">
+              <ImagePreviewer imageFile={compressedImage} />
+              {compressedImage && (
+                <>
+                  <p className="font-semibold text-lg text-center">
+                    Compressed-{compressedImage.name}
+                  </p>
+                  <button
+                    onClick={handleDownload}
+                    className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+                  >
+                    {isDownload ? "Downloading..." : "Download"}
+                  </button>
+                </>
+              )}
+            </div>
+          </aside>
+        </article>
+      </div>
     </section>
   );
 }
