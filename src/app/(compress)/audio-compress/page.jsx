@@ -3,10 +3,13 @@ import { useState } from "react";
 // import compressAudio from "@/lib/audio/audioCompress";
 import FileInput from "@/components/shared/fileinput";
 import AudioPreview from "@/components/shared/AudioPreview";
+import AudioPlayer from "react-h5-audio-player";
+import "react-h5-audio-player/lib/styles.css";
 
 export default function AudioPage() {
   const [selectedFile, setSelectedFile] = useState();
   const [isCompressing, setIsCompressing] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
 
   const handleFileUpload = (e) => {
     if (e.target.files[0]) {
@@ -45,7 +48,12 @@ export default function AudioPage() {
         />
         {selectedFile && (
           <>
-            <AudioPreview audioUrl={URL.createObjectURL(selectedFile)} />
+            <AudioPlayer
+              autoPlay
+              src={URL.createObjectURL(selectedFile)}
+              onPlay={(e) => console.log("onPlay")}
+              volume={0.5}
+            />
             <button
               onClick={handleCompress}
               disabled={isCompressing}
