@@ -4,7 +4,7 @@ import { useState } from "react";
 import { compressFile, download } from "@/lib/helpers/helpers";
 import ImagePreviewer from "@/components/shared/imagePreview";
 
-export default function imagePage() {
+export default function ImagePage() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [compressedImage, setCompressedImage] = useState();
   const [isCompressing, setIsCompressing] = useState(false);
