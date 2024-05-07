@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <main className="w-full p-4">
+    <main className="w-full p-4 h-screen">
       <div className="w-full flex justify-center items-center flex-col gap-3">
         <h1 className="text-3xl font-semibold">Tentang</h1>
         <table>

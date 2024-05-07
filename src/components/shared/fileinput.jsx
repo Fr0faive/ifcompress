@@ -1,4 +1,4 @@
-export default function FileInput({ handleOnChange, label, accept }) {
+export default function FileInput({ handleOnChange, label, fileRef, accept }) {
   return (
     <div className="border-2 border-dashed rounded-2xl border-gray-400 p-3 w-fit">
       <label htmlFor="input-file" className="cursor-pointer text-slate-800">
@@ -8,8 +8,10 @@ export default function FileInput({ handleOnChange, label, accept }) {
         type="file"
         id="input-file"
         accept={accept}
+        ref={fileRef}
         onChange={handleOnChange}
         style={{ display: "none" }}
+        required
       />
     </div>
   );
