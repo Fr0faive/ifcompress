@@ -21,7 +21,7 @@ export default function Navbar() {
               : "hover:text-blue-500"
           }
         >
-          <Link href="/image-compress">Image Compress</Link>
+          <Link href="/image-compress">Image Processing</Link>
         </li>
         <li
           className={
@@ -30,7 +30,7 @@ export default function Navbar() {
               : "hover:text-blue-500"
           }
         >
-          <Link href="/audio-compress">Audio Compress</Link>
+          <Link href="/audio-compress">Audio Processing</Link>
         </li>
         <li
           className={
