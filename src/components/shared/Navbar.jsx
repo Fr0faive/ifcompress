@@ -34,6 +34,15 @@ export default function Navbar() {
         </li>
         <li
           className={
+            path === "/video-processing"
+              ? " text-blue-700 font-semibold underline underline-offset-[6px]"
+              : "hover:text-blue-500"
+          }
+        >
+          <Link href="/video-processing">Video Processing</Link>
+        </li>
+        <li
+          className={
             path === "/about"
               ? " text-blue-700 font-semibold underline underline-offset-[6px]"
               : "hover:text-blue-500"

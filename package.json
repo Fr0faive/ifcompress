@@ -16,6 +16,7 @@
     "cloudinary": "^2.2.0",
     "ffmpeg": "^0.0.4",
     "ffmpeg.js": "^4.2.9003",
+    "fluent-ffmpeg": "^2.1.2",
     "jsmediatags": "^3.9.7",
     "lamejs": "^1.2.1",
     "multer": "^1.4.5-lts.1",

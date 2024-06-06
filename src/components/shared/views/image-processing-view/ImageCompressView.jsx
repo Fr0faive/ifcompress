@@ -37,7 +37,8 @@ export default function ImageCompressView() {
     <div className="flex flex-col justify-center items-center">
       <FileInput
         handleOnChange={handleOnChange}
-        label="Select Image"
+        id="input-file"
+        label={selectedImage ? selectedImage.name : "Select Image File"}
         accept="image/*"
       />
       <article className={selectedImage ? "flex p-6 gap-3" : "hidden"}>
@@ -45,16 +46,13 @@ export default function ImageCompressView() {
           <div className="flex justify-center items-center flex-col gap-10 w-full">
             <ImagePreviewer imageFile={selectedImage} />
             {selectedImage && (
-              <>
-                <p className="font-semibold text-lg">{selectedImage.name}</p>
-                <button
-                  disabled={isCompressing}
-                  onClick={handleCompressFile}
-                  className="bg-blue-500 text-white px-4 py-2 rounded-lg"
-                >
-                  {isCompressing ? "Compressing..." : "Compress"}
-                </button>
-              </>
+              <button
+                disabled={isCompressing}
+                onClick={handleCompressFile}
+                className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+              >
+                {isCompressing ? "Compressing..." : "Compress"}
+              </button>
             )}
           </div>
         </aside>

@@ -70,6 +70,7 @@ export default function ImageTransformView() {
           handleOnChange={handleOnChange}
           label="Select Image"
           accept="image/*"
+          id="image-cropper"
         />
       )}
     </div>
